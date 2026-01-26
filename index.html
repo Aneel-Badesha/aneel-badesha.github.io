@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aneel Badesha</title>
-  <meta name="description" content="Aneel Badesha – Engineering student and firmware developer." />
+  <meta name="description" content="Aneel Badesha – Firmware Engineer and Computer Engineering student." />
   <style>
     body {
       margin: 0;
@@ -18,32 +18,33 @@
       text-align: center;
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.7rem;
       margin-bottom: 0.5rem;
     }
     header p {
-      max-width: 700px;
-      margin: 0 auto;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
       color: #cbd5f5;
     }
     main {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 2rem 1.5rem 4rem;
     }
     section {
-      margin-bottom: 3rem;
+      margin-bottom: 3.5rem;
     }
     h2 {
       border-bottom: 1px solid #334155;
       padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
+      color: #f1f5f9;
     }
     ul {
       padding-left: 1.2rem;
     }
     li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
     }
     a {
       color: #60a5fa;
@@ -62,71 +63,121 @@
       margin: 0 0.75rem;
       font-weight: 500;
     }
+    .experience-item {
+      margin-bottom: 1.5rem;
+    }
+    .experience-item strong {
+      color: #f8fafc;
+    }
+    .subtext {
+      color: #cbd5f5;
+      font-size: 0.95rem;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Aneel Badesha</h1>
     <p>
-      Engineering student focused on firmware, embedded systems, and low-level software.
-      Interested in performance, systems programming, and real-world engineering problems.
+      Firmware-focused Computer Engineering student with industry experience building
+      embedded systems, multithreaded software, and low-level firmware for real hardware.
+      Strong interest in systems programming, performance, and autonomous systems.
     </p>
     <div class="links">
       <a href="https://github.com/Aneel-Badesha" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/asb2/" target="_blank">LinkedIn</a>
-      <a href="mailto:asb41@sfu.com">Email</a>
+      <a href="https://linkedin.com/in/asb2/" target="_blank">LinkedIn</a>
+      <a href="mailto:asb41@sfu.ca">Email</a>
     </div>
   </header>
 
   <main>
     <section>
-      <h2>About Me</h2>
+      <h2>Education</h2>
       <p>
-        I’m a computer engineering student with hands-on experience in firmware development,
-        multithreaded systems, and data-driven engineering tools. I enjoy working close to the
-        hardware and optimizing systems for reliability and performance.
+        <strong>Simon Fraser University</strong> — Vancouver, Canada<br />
+        Bachelor of Applied Science, Computer Engineering<br />
+        <span class="subtext">Expected Graduation: May 2027</span>
       </p>
     </section>
 
     <section>
-      <h2>Skills</h2>
+      <h2>Technical Skills</h2>
       <ul>
-        <li><strong>Languages:</strong> C, C++, Python</li>
-        <li><strong>Systems:</strong> Embedded systems, multithreading, synchronization</li>
-        <li><strong>Tools:</strong> Git, Linux, GDB, ngspice</li>
-        <li><strong>Concepts:</strong> Firmware, OS fundamentals, performance optimization</li>
+        <li><strong>Languages:</strong> C, C++, Python, MATLAB, Java, Rust, C#, HTML, CSS, SQL, JavaScript</li>
+        <li><strong>Embedded & Systems:</strong> Embedded Linux, FreeRTOS, POSIX, ROS, I2C, SPI, UART, PWM, ADC, CAN, JTAG, TCP/IP</li>
+        <li><strong>Hardware:</strong> Oscilloscope, Logic Analyzer, Multimeter, Raspberry Pi, ESP32, STM32, BeagleBone, Soldering</li>
+        <li><strong>Tools:</strong> Git, JIRA, Confluence, Microsoft Office</li>
       </ul>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      <div class="experience-item">
+        <strong>Firmware Technical Lead</strong> — SFU Roboracer (F1Tenth) Team<br />
+        <span class="subtext">Jan 2026 – Present · Vancouver, Canada</span>
+        <ul>
+          <li>Leading the design and implementation of an autonomous driving software stack using ROS in C++</li>
+          <li>Coordinating a multi-developer firmware team, managing code reviews, integration, and technical direction</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <strong>Firmware Engineer Intern</strong> — AiModels<br />
+        <span class="subtext">Jan 2026 – Apr 2026 · Vancouver, Canada</span>
+        <ul>
+          <li>Developed firmware in C/C++ for AI-powered IoT dataloggers using ESP32 microcontrollers</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <strong>Firmware Engineer Intern</strong> — Astera Labs<br />
+        <span class="subtext">Jan 2025 – Aug 2025 · Vancouver, Canada</span>
+        <ul>
+          <li>Reduced firmware update time by 87% by optimizing a universal firmware updater</li>
+          <li>Implemented APIs and resolved 50+ bug tickets across a unified SDK used for PCIe retimers and fabric switches</li>
+          <li>Built a Pytest-based regression suite covering 92% of configurable parameters on a CXL Smart Memory Controller</li>
+          <li>Integrated regression testing into Jenkins using Groovy to gate all pull requests</li>
+          <li>Configured and debugged hardware using SPI, UART, I2C, and JTAG</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <strong>Software Engineer Intern</strong> — Ausenco<br />
+        <span class="subtext">May 2024 – Aug 2024 · Vancouver, Canada</span>
+        <ul>
+          <li>Developed a Python-based dashboard to simulate oil pipeline throughput</li>
+          <li>Built interactive UIs with dynamic tables and satellite imagery maps</li>
+          <li>Implemented data import/export APIs and authored technical documentation</li>
+        </ul>
+      </div>
     </section>
 
     <section>
       <h2>Projects</h2>
       <ul>
         <li>
-          <strong>Firmware & Embedded Projects</strong> – Sensor monitoring, real-time alarms,
-          and multithreaded C systems.
+          <strong>Ultrasonic Radar System</strong> — C, Python, ESP32, Raspberry Pi
+          <ul>
+            <li>Built a wireless radar system with ultrasonic sensing and OLED visualization</li>
+            <li>Implemented a multithreaded FreeRTOS architecture with real-time graphics rendering</li>
+            <li>Streamed JSON sensor data over WiFi to a Flask dashboard with WebSocket updates</li>
+          </ul>
         </li>
         <li>
-          <strong>Systems Programming</strong> – UDP-based communication systems with
-          synchronization primitives.
-        </li>
-        <li>
-          <strong>Engineering Dashboards</strong> – Python tools for simulations, data pipelines,
-          and visualization.
+          <strong>Multi-Purpose Fire and Gas Detector</strong> — C, BeagleBone Green
+          <ul>
+            <li>Developed a real-time embedded Linux alarm system with LED matrix alerts</li>
+            <li>Used POSIX threads and mutexes for synchronized sensor processing</li>
+            <li>Integrated five sensors over I2C for CO, CO2, and gas detection</li>
+          </ul>
         </li>
       </ul>
-    </section>
-
-    <section>
-      <h2>Experience</h2>
-      <p>
-        Firmware Engineering Intern · Software Engineering Intern ·
-        Full-stack engineering experience across academic and industry projects.
-      </p>
     </section>
   </main>
 
   <footer>
-    © 2026 Aneel Badesha · Built with GitHub Pages
+    © 2026 Aneel Badesha · GitHub Pages
   </footer>
 </body>
 </html>
