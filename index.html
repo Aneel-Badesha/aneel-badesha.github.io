@@ -290,6 +290,15 @@
       color: #f0f6ff;
     }
 
+    .project-name a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .project-name a:hover {
+      text-decoration: underline;
+    }
+
     .project-bullets {
       list-style: none;
       padding: 0;
@@ -440,7 +449,7 @@
     <h1>Aneel Badesha</h1>
     <p class="hero-sub">Computer Engineering @ Simon Fraser University &nbsp;·&nbsp; Graduating May 2027</p>
     <p class="hero-desc">
-      I'm drawn to the layer where hardware meets software — where constraints are
+      I'm drawn to the layer where hardware meets software, where constraints are
       real and every optimization has a measurable impact. I write firmware that ships.
     </p>
     <div class="hero-cta">
@@ -460,11 +469,11 @@
       <div class="timeline">
 
         <div class="timeline-item">
-          <div class="exp-role">Firmware Technical Lead &mdash; <span class="exp-company">SFU Roboracer Team(F1Tenth)</span></div>
+          <div class="exp-role">Firmware & Software Technical Lead &mdash; <span class="exp-company">SFU Roboracer Team (F1Tenth)</span></div>
           <div class="exp-meta">Jan 2026 – Present &nbsp;·&nbsp; Vancouver, Canada</div>
           <ul class="exp-bullets">
             <li>Leading design and implementation of an autonomous driving software stack using ROS 2 in C++</li>
-            <li>Coordinating a multi-developer firmware team: code reviews, integration, and technical direction</li>
+            <li>Coordinating a multi-developer firmware and software team: code reviews, integration, and technical direction</li>
           </ul>
         </div>
 
@@ -472,7 +481,7 @@
           <div class="exp-role">Firmware Engineer Intern &mdash; <span class="exp-company"><a href="https://aimodels.ca/" target="_blank">AiModels</a></span></div>
           <div class="exp-meta">Jan 2026 – Apr 2026 &nbsp;·&nbsp; Vancouver, Canada</div>
           <ul class="exp-bullets">
-            <li>Developing firmware in C/C++ for AI-powered IoT dataloggers using ESP32 microcontrollers at a stealth startup</li>
+            <li>Developing firmware for AI-powered IoT dataloggers using ESP32 microcontrollers at a stealth startup</li>
             <li>Created and maintained C-based unit tests for firmware components with CI integration through GitHub Actions</li>
             <li>Designed and implemented a secure credential store using NVS to protect and manage sensitive system data</li>
             <li>Developed a centralized network management component to track Ethernet and Wi-Fi interface health and manage connectivity state through a unified network status API</li>
@@ -513,7 +522,7 @@
       <div class="projects-grid">
 
         <div class="project-card">
-          <div class="project-name">Ultrasonic Radar System</div>
+          <div class="project-name"><a href="https://github.com/Aneel-Badesha/ultrasonic-radar-system" target="_blank">Ultrasonic Radar System</a></div>
           <ul class="project-bullets">
             <li>Wireless radar system with ultrasonic sensing and OLED visualization</li>
             <li>Multithreaded FreeRTOS architecture with real-time graphics rendering</li>
@@ -523,13 +532,13 @@
             <span class="tag">C</span>
             <span class="tag">Python</span>
             <span class="tag">ESP32</span>
-            <span class="tag">Raspberry Pi</span>
+            <span class="tag">R-Pi</span>
             <span class="tag">FreeRTOS</span>
           </div>
         </div>
 
         <div class="project-card">
-          <div class="project-name">Multi-Purpose Fire &amp; Gas Detector</div>
+          <div class="project-name"><a href="https://github.com/Aneel-Badesha/gasdetector" target="_blank">Multi-Purpose Fire &amp; Gas Detector</a></div>
           <ul class="project-bullets">
             <li>Real-time embedded Linux alarm system with LED matrix alerts</li>
             <li>POSIX threads and mutexes for synchronized sensor processing</li>
@@ -539,8 +548,79 @@
             <span class="tag">C</span>
             <span class="tag">Embedded Linux</span>
             <span class="tag">BeagleBone</span>
-            <span class="tag">I2C</span>
             <span class="tag">POSIX</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-name"><a href="https://github.com/Aneel-Badesha/stormhacks2025" target="_blank">Punchly</a></div>
+          <ul class="project-bullets">
+            <li>Full-stack mobile wallet app enabling businesses to run NFC-based loyalty programs</li>
+            <li>Integrated user authentication, NFC deep-linking, and an admin dashboard with backend database syncing</li>
+            <li>Awarded 1st out of 219 projects in the most portable project track at SFU StormHacks 2025</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">React Native</span>
+            <span class="tag">Expo</span>
+            <span class="tag">Flask</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">SQLite</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-name"><a href="https://github.com/Aneel-Badesha/Self-Driving-Car" target="_blank">Self-Driving Mini Car</a></div>
+          <ul class="project-bullets">
+            <li>Designed and built a self-driving mini car with integrated control, vision, and safety systems</li>
+            <li>Developed software for real-time camera data acquisition, object detection, and autonomous vehicle control</li>
+            <li>Expanding the system with deep learning-driven self-driving capabilities using PyTorch for end-to-end perception and decision-making</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">OpenCV</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-name"><a href="https://github.com/Aneel-Badesha/DeepHoops" target="_blank">DeepHoops</a></div>
+          <ul class="project-bullets">
+            <li>Machine learning system to predict NBA game outcomes using pre-game team statistics</li>
+            <li>Engineered data pipelines for fetching, preprocessing, and feature-engineering NBA data; implemented logistic regression and LSTM models</li>
+            <li>Achieved 63% test accuracy (8.8% above baseline) on real 2023–24 season data</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">TensorFlow</span>
+            <span class="tag">scikit-learn</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-name"><a href="https://github.com/Aneel-Badesha/EscapeTheDungeon" target="_blank">Welcome to the Dungeon</a></div>
+          <ul class="project-bullets">
+            <li>2D arcade-style game in Java where players progress through levels by collecting keys, avoiding enemies, and unlocking exits</li>
+            <li>Implemented unit tests with JUnit, achieving 94% code coverage to verify functionality and stability</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">Maven</span>
+            <span class="tag">JUnit</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-name"><a href="https://github.com/Aneel-Badesha/uart" target="_blank">UART</a></div>
+          <ul class="project-bullets">
+            <li>Architected and implemented a complete UART transmitter/receiver system using VHDL, Quartus, and ModelSim</li>
+            <li>Integrated data framing with start, stop, and parity bits to ensure reliable serial transmission</li>
+            <li>Developed comprehensive testbenches for functional verification and pre-deployment testing on an FPGA</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">VHDL</span>
+            <span class="tag">FPGA</span>
+            <span class="tag">Quartus</span>
+            <span class="tag">ModelSim</span>
           </div>
         </div>
 
@@ -600,14 +680,15 @@
         <div class="skill-group">
           <div class="skill-group-label">Hardware</div>
           <div class="tags">
-            <span class="tag">JTAG</span>
-            <span class="tag">Oscilloscope</span>
-            <span class="tag">Logic Analyzer</span>
-            <span class="tag">Multimeter</span>
             <span class="tag">Raspberry Pi</span>
             <span class="tag">ESP32</span>
             <span class="tag">STM32</span>
             <span class="tag">BeagleBone</span>
+            <span class="tag">JTAG</span>
+            <span class="tag">Oscilloscope</span>
+            <span class="tag">Logic Analyzer</span>
+            <span class="tag">Multimeter</span>
+            <span class="tag">Power Supply</span>
             <span class="tag">Soldering</span>
           </div>
         </div>
