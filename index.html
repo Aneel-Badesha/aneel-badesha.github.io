@@ -30,6 +30,24 @@
 
     html { scroll-behavior: smooth; }
 
+    @keyframes scanSweep {
+      0%   { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(transparent 50%, rgba(255, 0, 0, 0.07) 50%) 0 0 / 100% 4px;
+      animation: scanSweep 8s linear infinite;
+      pointer-events: none;
+      z-index: 9998;
+    }
+
     body::after {
       content: '';
       position: fixed;
