@@ -195,6 +195,10 @@
       text-transform: uppercase;
       margin: 0 0 0.6rem;
       color: var(--heading);
+      text-shadow:
+        0 0 6px rgba(240, 165, 0, 0.7),
+        0 0 20px rgba(240, 165, 0, 0.4),
+        0 0 40px rgba(240, 165, 0, 0.15);
     }
 
     .hero-sub {
@@ -226,8 +230,8 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      padding: 0.5rem 1.3rem;
-      border-radius: 2px;
+      padding: 0.5rem 1.5rem;
+      border-radius: 0;
       font-family: 'Share Tech Mono', monospace;
       font-size: 0.8rem;
       letter-spacing: 0.08em;
@@ -236,12 +240,19 @@
       text-decoration: none;
       transition: all 0.18s;
       cursor: pointer;
+      transform: skewX(-12deg);
+    }
+
+    .btn span {
+      display: inline-block;
+      transform: skewX(12deg);
     }
 
     .btn-primary {
       background: var(--accent);
       color: #000000;
       border: 1px solid var(--accent);
+      animation: alertPulse 2s ease-in-out infinite;
     }
 
     .btn-primary:hover {
@@ -306,15 +317,45 @@
     }
 
     /* ── NERV decorative elements ── */
+    @keyframes stripScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-28.28px); } /* one stripe cycle: 20px / sin(45°) */
+    }
+
+    @keyframes hexPulse {
+      0%, 100% { filter: drop-shadow(0 0 3px rgba(240, 165, 0, 0.4)); }
+      50%       { filter: drop-shadow(0 0 14px rgba(240, 165, 0, 0.85)); }
+    }
+
+    @keyframes alertPulse {
+      0%, 100% { box-shadow: 0 0 8px rgba(240, 165, 0, 0.4); }
+      50%       { box-shadow: 0 0 24px rgba(240, 165, 0, 0.9); }
+    }
+
+    @keyframes revealY {
+      from { transform: scaleY(0); opacity: 0; }
+      to   { transform: scaleY(1); opacity: 1; }
+    }
+
     .nerv-divider {
       width: 100%;
-      height: 3px;
+      height: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .nerv-divider::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 300%;
+      height: 100%;
       background: repeating-linear-gradient(
         -45deg,
-        #000 0, #000 6px,
-        rgba(240, 165, 0, 0.55) 6px, rgba(240, 165, 0, 0.55) 12px
+        #000 0, #000 10px,
+        rgba(240, 165, 0, 0.6) 10px, rgba(240, 165, 0, 0.6) 20px
       );
-      margin: 0;
+      animation: stripScroll 0.6s linear infinite;
     }
 
     .nerv-jp {
@@ -333,6 +374,19 @@
       letter-spacing: 0.1em;
       text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
       animation: blink 2s step-start infinite;
+    }
+
+    /* ── Timeline reveal ── */
+    .timeline-item {
+      transform-origin: top;
+      opacity: 0;
+      transform: scaleY(0.6) translateY(-8px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .timeline-item.revealed {
+      opacity: 1;
+      transform: scaleY(1) translateY(0);
     }
 
     /* ── Timeline (Experience) ── */
@@ -543,38 +597,177 @@
       box-shadow: 0 0 6px var(--accent-dim);
     }
 
-    /* ── Skills ── */
-    .skills-grid {
-      display: grid;
-      gap: 1.1rem;
+    /* ── Skills — Hex Grid ── */
+    .hex-grid {
+      display: flex;
+      flex-direction: column;
+      width: 522px; /* 3 * 166px + 2 * 12px gap */
+      margin: 0 auto;
     }
 
-    .skill-group {
+    .hex-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: -46px;
+    }
+
+    .hex-row:last-child { margin-bottom: 0; }
+
+    .hex-row:nth-child(2) {
+      padding-left: 89px;
+    }
+
+    .hex-outer {
+      width: 166px;
+      height: 184px;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: filter 0.2s;
+      flex-shrink: 0;
+    }
+
+    .hex-outer {
+      animation: hexPulse 2.8s ease-in-out infinite;
+    }
+
+    .hex-outer:hover {
+      filter: drop-shadow(0 0 14px var(--accent-glow));
+      animation: none;
+    }
+
+    .hex-btn {
+      width: 160px;
+      height: 178px;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
       background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 0;
-      padding: 1.2rem 1.4rem;
-      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: background 0.2s;
+      pointer-events: none;
     }
 
-    .skill-group::before {
+    .hex-outer:hover .hex-btn {
+      background: rgba(240, 165, 0, 0.10);
+    }
+
+    .hex-icon {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 2rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .hex-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-align: center;
+      padding: 0 0.5rem;
+      line-height: 1.3;
+    }
+
+    /* ── Hex Modal ── */
+    .hex-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.80);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+    }
+
+    .hex-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .hex-modal {
+      background: var(--card);
+      border: 1px solid var(--accent);
+      padding: 1.8rem 2rem;
+      max-width: 480px;
+      width: 90%;
+      position: relative;
+      transform: scale(0.95);
+      transition: transform 0.2s;
+    }
+
+    .hex-modal-overlay.active .hex-modal {
+      transform: scale(1);
+    }
+
+    .hex-modal::before {
       content: '';
       position: absolute;
-      top: -1px;
-      left: -1px;
-      width: 10px;
-      height: 10px;
-      border-top: 1px solid var(--accent);
-      border-left: 1px solid var(--accent);
+      top: -1px; left: -1px;
+      width: 14px; height: 14px;
+      border-top: 2px solid var(--accent);
+      border-left: 2px solid var(--accent);
     }
 
-    .skill-group-label {
+    .hex-modal::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; right: -1px;
+      width: 14px; height: 14px;
+      border-bottom: 2px solid var(--accent);
+      border-right: 2px solid var(--accent);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.2rem;
+    }
+
+    .modal-eyebrow {
       font-family: 'Share Tech Mono', monospace;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.8rem;
+      color: var(--accent);
+      opacity: 0.8;
+      margin-bottom: 0.3rem;
+    }
+
+    .modal-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.06em;
+      color: var(--heading);
+      margin: 0;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--subtext);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      transition: border-color 0.15s, color 0.15s;
+      flex-shrink: 0;
+    }
+
+    .modal-close:hover {
+      border-color: var(--accent);
+      color: var(--accent);
     }
 
     /* ── Education ── */
@@ -676,6 +869,13 @@
       main { padding: 0 1.25rem 4rem; }
       .edu-card { flex-direction: column; }
       .projects-grid { grid-template-columns: 1fr; }
+      .hex-grid { width: 396px; } /* 3 * 128px + 2 * 6px gap */
+      .hex-row { gap: 6px; margin-bottom: -36px; }
+      .hex-row:nth-child(2) { padding-left: 67px; } /* (128 + 6) / 2 */
+      .hex-outer { width: 128px; height: 142px; }
+      .hex-btn { width: 122px; height: 137px; }
+      .hex-icon { font-size: 1.1rem; }
+      .hex-label { font-size: 0.56rem; }
     }
   </style>
 </head>
@@ -703,10 +903,10 @@
       I build where the silicon meets the code, where constraints are absolute and every microsecond of optimization counts. I write code that ships.
     </p>
     <div class="hero-cta">
-      <a href="Aneel_Badesha_Resume.pdf" target="_blank" class="btn btn-primary">Resume</a>
-      <a href="https://github.com/Aneel-Badesha" target="_blank" class="btn btn-ghost">GitHub</a>
-      <a href="https://linkedin.com/in/asb2/" target="_blank" class="btn btn-ghost">LinkedIn</a>
-      <a href="mailto:asb41@sfu.ca" class="btn btn-ghost">Email</a>
+      <a href="Aneel_Badesha_Resume.pdf" target="_blank" class="btn btn-primary"><span>Resume</span></a>
+      <a href="https://github.com/Aneel-Badesha" target="_blank" class="btn btn-ghost"><span>GitHub</span></a>
+      <a href="https://linkedin.com/in/asb2/" target="_blank" class="btn btn-ghost"><span>LinkedIn</span></a>
+      <a href="mailto:asb41@sfu.ca" class="btn btn-ghost"><span>Email</span></a>
     </div>
   </div>
 
@@ -719,7 +919,7 @@
       <div class="timeline">
 
         <div class="timeline-item">
-          <div class="exp-role">Firmware & Software Technical Lead &mdash; <span class="exp-company">SFU Roboracer Team</span></div>
+          <div class="exp-role">Firmware & Software Technical Lead &mdash; <span class="exp-company">SFU RacerBot Club</span></div>
           <div class="exp-meta">Jan 2026 – Present &nbsp;·&nbsp; Vancouver, Canada</div>
           <ul class="exp-bullets">
             <li>Leading design and implementation of an autonomous driving software stack using ROS 2 in C++</li>
@@ -887,65 +1087,53 @@
       <div class="section-eyebrow">[ NERV ] // SYNCHRONIZATION_DATA</div>
       <h2 class="section-title">Technical Skills</h2>
 
-      <div class="skills-grid">
-        <div class="skill-group">
-          <div class="skill-group-label">Languages</div>
-          <div class="tags">
-            <span class="tag">C</span>
-            <span class="tag">C++</span>
-            <span class="tag">Python</span>
-            <span class="tag">Java</span>
-            <span class="tag">Rust</span>
+      <div class="hex-grid">
+        <div class="hex-row">
+          <div class="hex-outer" data-group="languages">
+            <div class="hex-btn">
+              <span class="hex-icon">&lt;/&gt;</span>
+              <span class="hex-label">Languages</span>
+            </div>
+          </div>
+          <div class="hex-outer" data-group="embedded">
+            <div class="hex-btn">
+              <span class="hex-icon">⚙</span>
+              <span class="hex-label">Embedded &amp; Systems</span>
+            </div>
+          </div>
+          <div class="hex-outer" data-group="hardware">
+            <div class="hex-btn">
+              <span class="hex-icon">▣</span>
+              <span class="hex-label">Hardware</span>
+            </div>
           </div>
         </div>
-        <div class="skill-group">
-          <div class="skill-group-label">Embedded &amp; Systems</div>
-          <div class="tags">
-            <span class="tag">Embedded Linux</span>
-            <span class="tag">FreeRTOS</span>
-            <span class="tag">POSIX</span>
-            <span class="tag">I2C</span>
-            <span class="tag">SPI</span>
-            <span class="tag">UART</span>
-            <span class="tag">CAN</span>
-            <span class="tag">TCP/IP</span>
+        <div class="hex-row">
+          <div class="hex-outer" data-group="tools">
+            <div class="hex-btn">
+              <span class="hex-icon">⚒</span>
+              <span class="hex-label">Tools &amp; Tech</span>
+            </div>
+          </div>
+          <div class="hex-outer" data-group="frameworks">
+            <div class="hex-btn">
+              <span class="hex-icon">{ }</span>
+              <span class="hex-label">Frameworks &amp; Libraries</span>
+            </div>
           </div>
         </div>
-        <div class="skill-group">
-          <div class="skill-group-label">Hardware</div>
-          <div class="tags">
-            <span class="tag">Raspberry Pi</span>
-            <span class="tag">ESP32</span>
-            <span class="tag">STM32</span>
-            <span class="tag">BeagleBone</span>
-            <span class="tag">JTAG</span>
-            <span class="tag">Oscilloscope</span>
-            <span class="tag">Logic Analyzer</span>
-            <span class="tag">Multimeter</span>
-            <span class="tag">Soldering</span>
+      </div>
+
+      <div class="hex-modal-overlay" id="hex-modal-overlay">
+        <div class="hex-modal">
+          <div class="modal-header">
+            <div>
+              <div class="modal-eyebrow">[ NERV ] // SYNCHRONIZATION_DATA</div>
+              <h3 class="modal-title" id="modal-title"></h3>
+            </div>
+            <button class="modal-close" id="modal-close">[ CLOSE ]</button>
           </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-label">Technologies &amp; Tools</div>
-          <div class="tags">
-            <span class="tag">Git</span>
-            <span class="tag">Linux</span>>
-            <span class="tag">GDB</span>
-            <span class="tag">Docker</span>
-            <span class="tag">Jenkins</span>
-            <span class="tag">Jira</span>
-          </div>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-label">Frameworks &amp; Libraries</div>
-          <div class="tags">
-            <span class="tag">CUDA</span>
-            <span class="tag">ROS</span>
-            <span class="tag">PyTest</span>
-            <span class="tag">PyTorch</span>
-            <span class="tag">TensorFlow</span>
-            <span class="tag">scikit-learn</span>
-          </div>
+          <div class="tags" id="modal-tags"></div>
         </div>
       </div>
     </section>
@@ -962,6 +1150,45 @@
       <a href="mailto:asb41@sfu.ca">Contact</a>
     </p>
   </footer>
+
+  <script>
+    const skillData = {
+      languages:  { label: 'Languages',             tags: ['C', 'C++', 'Python', 'Java', 'Rust'] },
+      embedded:   { label: 'Embedded & Systems',     tags: ['Embedded Linux', 'FreeRTOS', 'POSIX', 'I2C', 'SPI', 'UART', 'CAN', 'TCP/IP'] },
+      hardware:   { label: 'Hardware',               tags: ['Raspberry Pi', 'ESP32', 'STM32', 'BeagleBone', 'JTAG', 'Oscilloscope', 'Logic Analyzer', 'Multimeter', 'Soldering'] },
+      tools:      { label: 'Technologies & Tools',   tags: ['Git', 'Linux', 'GDB', 'Docker', 'Jenkins', 'Jira'] },
+      frameworks: { label: 'Frameworks & Libraries', tags: ['CUDA', 'ROS', 'PyTest', 'PyTorch', 'TensorFlow', 'scikit-learn'] }
+    };
+
+    const overlay = document.getElementById('hex-modal-overlay');
+
+    document.querySelectorAll('.hex-outer').forEach(hex => {
+      hex.addEventListener('click', () => {
+        const data = skillData[hex.dataset.group];
+        document.getElementById('modal-title').textContent = data.label;
+        document.getElementById('modal-tags').innerHTML =
+          data.tags.map(t => `<span class="tag">${t}</span>`).join('');
+        overlay.classList.add('active');
+      });
+    });
+
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay || e.target.id === 'modal-close') {
+        overlay.classList.remove('active');
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('revealed'), i * 120);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
