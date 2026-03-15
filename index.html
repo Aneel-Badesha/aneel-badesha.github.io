@@ -746,7 +746,7 @@
     .hex-row {
       display: flex;
       gap: 12px;
-      margin-bottom: -46px;
+      margin-bottom: -34px;
     }
 
     .hex-row:last-child { margin-bottom: 0; }
@@ -1008,7 +1008,7 @@
       .edu-card { flex-direction: column; }
       .projects-grid { grid-template-columns: 1fr; }
       .hex-grid { width: 396px; } /* 3 * 128px + 2 * 6px gap */
-      .hex-row { gap: 6px; margin-bottom: -36px; }
+      .hex-row { gap: 6px; margin-bottom: -30px; }
       .hex-row:nth-child(2) { padding-left: 67px; } /* (128 + 6) / 2 */
       .hex-outer { width: 128px; height: 142px; }
       .hex-btn { width: 122px; height: 137px; }
@@ -1039,7 +1039,7 @@
     <h1>Aneel Badesha</h1>
     <p class="hero-sub">Computer Engineering @ Simon Fraser University &nbsp;·&nbsp; Graduating May 2027</p>
     <p class="hero-desc">
-      I build where the silicon meets the code, where constraints are absolute and every microsecond of optimization counts. I write code that ships.
+      I build where the silicon meets the code, where constraints are absolute and every microsecond of optimization counts. I write code that you can actually ship.
     </p>
     <div class="hero-cta">
       <a href="Aneel_Badesha_Resume.pdf" target="_blank" class="btn btn-primary"><span>Resume</span></a>
@@ -1274,7 +1274,7 @@
           <div class="hex-outer" data-group="embedded">
             <div class="hex-btn">
               <span class="hex-icon">⚙</span>
-              <span class="hex-label">Embedded &amp; Systems</span>
+              <span class="hex-label">Embedded Systems</span>
             </div>
           </div>
           <div class="hex-outer" data-group="hardware">
@@ -1329,8 +1329,8 @@
 
   <script>
     const skillData = {
-      languages:  { label: 'Languages',             tags: ['C', 'C++', 'Python', 'Java', 'Rust'] },
-      embedded:   { label: 'Embedded & Systems',     tags: ['Embedded Linux', 'FreeRTOS', 'POSIX', 'I2C', 'SPI', 'UART', 'CAN', 'TCP/IP'] },
+      languages:  { label: 'Languages',              tags: ['C', 'C++', 'Python', 'MATLAB', 'Java', 'Rust', 'ROS', 'HTML', 'CSS', 'SQL', 'JavaScript'] },
+      embedded:   { label: 'Embedded Systems',       tags: ['Embedded Linux', 'FreeRTOS', 'POSIX', 'I2C', 'SPI', 'UART', 'PWM', 'ADC', 'CAN', 'UDP', 'TCP/IP'] },
       hardware:   { label: 'Hardware',               tags: ['Raspberry Pi', 'ESP32', 'STM32', 'BeagleBone', 'JTAG', 'Oscilloscope', 'Logic Analyzer', 'Multimeter', 'Soldering'] },
       tools:      { label: 'Technologies & Tools',   tags: ['Git', 'Linux', 'GDB', 'Docker', 'Jenkins', 'Jira'] },
       frameworks: { label: 'Frameworks & Libraries', tags: ['CUDA', 'ROS', 'PyTest', 'PyTorch', 'TensorFlow', 'scikit-learn'] }
