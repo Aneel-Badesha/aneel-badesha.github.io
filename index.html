@@ -1152,9 +1152,9 @@
         <div class="project-card">
           <div class="project-name"><a href="https://github.com/Aneel-Badesha/sd-card-reader" target="_blank">SD Card File Browser</a></div>
           <ul class="project-bullets">
-            <li>Built a handheld SD card file browser on ESP32 with a custom OLED driver rendering a scrollable directory UI</li>
-            <li>Developed a multi-task FreeRTOS application separating button polling, continuous ADC thumbstick sampling, SD card I/O, and OLED rendering with shared mutex-protected input state</li>
-            <li>Designed a shared SPI bus architecture for SD card (FatFS) and W5500 ethernet controller with separate chip-selects; integrated W5500 via ESP-IDF and lwIP to stream files over TCP to a Raspberry Pi</li>
+            <li>Handheld ESP32 file browser with a custom OLED driver and scrollable directory UI</li>
+            <li>FreeRTOS app with dedicated tasks for button input, thumbstick ADC, SD card I/O, and display rendering with mutex-protected shared state</li>
+            <li>Shared SPI bus for SD card (FatFS) and W5500 ethernet; streamed files over TCP to a Raspberry Pi via lwIP</li>
           </ul>
           <div class="tags">
             <span class="tag">C</span>
