@@ -1150,6 +1150,40 @@
       <div class="projects-grid">
 
         <div class="project-card">
+          <div class="project-name"><a href="https://github.com/Aneel-Badesha/sd-card-reader" target="_blank">SD Card File Browser</a></div>
+          <ul class="project-bullets">
+            <li>Built a handheld SD card file browser on ESP32 with a custom OLED driver rendering a scrollable directory UI</li>
+            <li>Developed a multi-task FreeRTOS application separating button polling, continuous ADC thumbstick sampling, SD card I/O, and OLED rendering with shared mutex-protected input state</li>
+            <li>Designed a shared SPI bus architecture for SD card (FatFS) and W5500 ethernet controller with separate chip-selects; integrated W5500 via ESP-IDF and lwIP to stream files over TCP to a Raspberry Pi</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">C</span>
+            <span class="tag">Python</span>
+            <span class="tag">ESP32</span>
+            <span class="tag">Raspberry Pi</span>
+            <span class="tag">FreeRTOS</span>
+            <span class="tag">FatFS</span>
+            <span class="tag">lwIP</span>
+            <span class="tag">SPI</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-name"><a href="https://github.com/Aneel-Badesha/gasdetector" target="_blank">Multi-Purpose Fire &amp; Gas Detector</a></div>
+          <ul class="project-bullets">
+            <li>Real-time embedded Linux alarm system with LED matrix alerts</li>
+            <li>POSIX threads and mutexes for synchronized sensor processing</li>
+            <li>Five sensors integrated over I2C for CO, CO2, smoke and gas detection</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">C</span>
+            <span class="tag">Embedded Linux</span>
+            <span class="tag">BeagleBone</span>
+            <span class="tag">POSIX</span>
+          </div>
+        </div>
+
+        <div class="project-card">
           <div class="project-name"><a href="https://github.com/Aneel-Badesha/ultrasonic-radar-system" target="_blank">Ultrasonic Radar System</a></div>
           <ul class="project-bullets">
             <li>Wireless radar system with ultrasonic sensing and OLED visualization</li>
@@ -1166,17 +1200,17 @@
         </div>
 
         <div class="project-card">
-          <div class="project-name"><a href="https://github.com/Aneel-Badesha/gasdetector" target="_blank">Multi-Purpose Fire &amp; Gas Detector</a></div>
+          <div class="project-name"><a href="https://github.com/Aneel-Badesha/uart" target="_blank">UART</a></div>
           <ul class="project-bullets">
-            <li>Real-time embedded Linux alarm system with LED matrix alerts</li>
-            <li>POSIX threads and mutexes for synchronized sensor processing</li>
-            <li>Five sensors integrated over I2C for CO, CO2, smoke and gas detection</li>
+            <li>Architected and implemented a complete UART transmitter/receiver system using VHDL, Quartus, and ModelSim</li>
+            <li>Integrated data framing with start, stop, and parity bits to ensure reliable serial transmission</li>
+            <li>Developed comprehensive testbenches for functional verification and pre-deployment testing on an FPGA</li>
           </ul>
           <div class="tags">
-            <span class="tag">C</span>
-            <span class="tag">Embedded Linux</span>
-            <span class="tag">BeagleBone</span>
-            <span class="tag">POSIX</span>
+            <span class="tag">VHDL</span>
+            <span class="tag">FPGA</span>
+            <span class="tag">Quartus</span>
+            <span class="tag">ModelSim</span>
           </div>
         </div>
 
@@ -1197,21 +1231,6 @@
         </div>
 
         <div class="project-card">
-          <div class="project-name"><a href="https://github.com/Aneel-Badesha/uart" target="_blank">UART</a></div>
-          <ul class="project-bullets">
-            <li>Architected and implemented a complete UART transmitter/receiver system using VHDL, Quartus, and ModelSim</li>
-            <li>Integrated data framing with start, stop, and parity bits to ensure reliable serial transmission</li>
-            <li>Developed comprehensive testbenches for functional verification and pre-deployment testing on an FPGA</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">VHDL</span>
-            <span class="tag">FPGA</span>
-            <span class="tag">Quartus</span>
-            <span class="tag">ModelSim</span>
-          </div>
-        </div>
-
-        <div class="project-card">
           <div class="project-name"><a href="https://github.com/Aneel-Badesha/DeepHoops" target="_blank">DeepHoops</a></div>
           <ul class="project-bullets">
             <li>Machine learning system to predict NBA game outcomes using pre-game team statistics</li>
@@ -1225,6 +1244,7 @@
           </div>
         </div>
 
+        <!--
         <div class="project-card">
           <div class="project-name"><a href="https://github.com/Aneel-Badesha/Self-Driving-Car" target="_blank">Self-Driving Mini Car</a></div>
           <ul class="project-bullets">
@@ -1238,6 +1258,7 @@
             <span class="tag">OpenCV</span>
           </div>
         </div>
+        -->
         
       </div>
     </section>
